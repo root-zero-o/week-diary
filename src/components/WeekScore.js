@@ -1,11 +1,40 @@
 import styled from 'styled-components';
 
+const WeekScore = (props) => {
+ 
+    return (
+        <WeekScoreWrap>
+            <Span>{props.week[0]}요일</Span>
+            <Circle score={props.score}></Circle>
+            <Circle score={props.score}></Circle>
+            <Circle score={props.score}></Circle>
+            <Circle score={props.score}></Circle>
+            <Circle score={props.score}></Circle> 
+            <Triangle></Triangle>
+        </WeekScoreWrap>
+    );
+}
 const Circle = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 100%;
-    background: #eee;
     margin-right: 5px;
+    background-color: #eee;
+    &:nth-child(2){
+        background-color: ${props => (props.score >= 1 ? "#EC994B" : "#eee")};
+    }
+    &:nth-child(3){
+        background-color: ${props => (props.score >= 2 ? "#EC994B" : "#eee")};
+    }
+    &:nth-child(4){
+        background-color: ${props => (props.score >= 3 ? "#EC994B" : "#eee")};
+    }
+    &:nth-child(5){
+        background-color: ${props => (props.score >= 4 ? "#EC994B" : "#eee")};
+    }
+    &:nth-child(6){
+        background-color: ${props => (props.score >= 5 ? "#EC994B" : "#eee")};
+    }
 `;
 
 const Triangle = styled.div`
@@ -29,20 +58,5 @@ const Span = styled.span`
     margin-right: 20px;
     font-size : 15px;
 `;
-
-const WeekScore = (props) => {
-    
-    return (
-        <WeekScoreWrap>
-            <Span>{props.week[0]}요일</Span>
-            <Circle></Circle>
-            <Circle></Circle>
-            <Circle></Circle>
-            <Circle></Circle>
-            <Circle></Circle>
-            <Triangle></Triangle>
-        </WeekScoreWrap>
-    );
-}
 
 export default WeekScore;

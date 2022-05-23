@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-const Average = () => {
+const Average = (props) => {
+
+    let ScoreSum = props.score.reduce((acc, cur) => acc+cur);
+    let ScoreAverage = Math.floor(ScoreSum/7 * 100)/100
 
     return (
         <AverageWrap>
-            <AverageSpan>평균 점수 : 00.00점</AverageSpan>
-            <AverageBtn>Reset</AverageBtn>
+            <AverageSpan>평균 점수 : {ScoreAverage}점</AverageSpan>
         </AverageWrap> 
     )
 }
@@ -20,18 +22,5 @@ const AverageWrap = styled.div`
 const AverageSpan = styled.div`
     font-size : 25px;
 `;
-
-const AverageBtn = styled.button`
-    width: 100px;
-    height: 50px;
-
-    background-color: #15133C;
-    color: white;
-
-    border-radius: 10px;
-
-    margin-top: 20px;
-`;
-
 
 export default Average;
