@@ -7,7 +7,7 @@ const Average = (props) => {
 
     return (
         <AverageWrap>
-            <AverageSpan>평균 점수 : {ScoreAverage}점</AverageSpan>
+            <AverageSpan>Score Average : {ScoreAverage}</AverageSpan>
         </AverageWrap> 
     )
 }

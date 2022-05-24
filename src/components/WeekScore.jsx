@@ -1,16 +1,17 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const WeekScore = (props) => {
  
     return (
         <WeekScoreWrap>
-            <Span>{props.week[0]}요일</Span>
+            <Span>{props.week}</Span>
             <Circle score={props.score}></Circle>
             <Circle score={props.score}></Circle>
             <Circle score={props.score}></Circle>
             <Circle score={props.score}></Circle>
             <Circle score={props.score}></Circle> 
-            <Triangle></Triangle>
+            <Link to={`/MyWeek/${props.week}`}><Triangle/></Link>
         </WeekScoreWrap>
     );
 }
@@ -20,6 +21,7 @@ const Circle = styled.div`
     border-radius: 100%;
     margin-right: 5px;
     background-color: #eee;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.3);
     &:nth-child(2){
         background-color: ${props => (props.score >= 1 ? "#EC994B" : "#eee")};
     }
@@ -56,7 +58,7 @@ const WeekScoreWrap = styled.div`
 
 const Span = styled.span`
     margin-right: 20px;
-    font-size : 15px;
+    font-size : 25px;
 `;
 
 export default WeekScore;
